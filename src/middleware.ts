@@ -1,8 +1,11 @@
-import { auth } from "@/lib/auth";
+import NextAuth from "next-auth";
+import { authConfig } from "@/lib/auth.config";
 
-export default auth(() => {
-  // Authorization logic is handled in auth.config.ts authorized callback.
-});
+// Edge middleware must NOT import auth.ts (Prisma, bcrypt, etc.).
+// Route protection logic lives in auth.config.ts authorized callback.
+export const { auth: middleware } = NextAuth(authConfig);
+
+export default middleware;
 
 export const config = {
   matcher: ["/buyer/:path*", "/supplier/:path*", "/login", "/signup"],
