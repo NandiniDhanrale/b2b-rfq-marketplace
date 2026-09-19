@@ -40,8 +40,7 @@ export function SignupForm() {
           return;
         }
 
-        router.refresh();
-        router.push(role === "BUYER" ? "/buyer/rfqs" : "/supplier/rfqs");
+        window.location.href = role === "BUYER" ? "/buyer/rfqs" : "/supplier/rfqs";
       } catch (err) {
         setError(getErrorMessage(err));
       }

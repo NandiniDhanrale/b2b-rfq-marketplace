@@ -2,13 +2,11 @@
 
 import { useState, useTransition } from "react";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { Alert } from "@/components/ui/Alert";
 
 export function LoginForm() {
-  const router = useRouter();
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 
@@ -28,12 +26,16 @@ export function LoginForm() {
       });
 
       if (result?.error) {
-        setError("Invalid email or password");
+        setError(
+          result.error === "Configuration"
+            ? "Authentication is misconfigured. Contact the site administrator."
+            : "Invalid email or password",
+        );
         return;
       }
 
-      router.refresh();
-      router.push("/");
+      // Full navigation ensures the session cookie is applied before protected routes load.
+      window.location.href = "/";
     });
   }
 
