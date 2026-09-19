@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { auth, signOut } from "@/lib/auth";
+import { signOut } from "@/lib/auth";
+import { getSafeSession } from "@/lib/auth-helpers";
 import { Button } from "@/components/ui/Button";
 
 export async function Header() {
-  const session = await auth();
+  const session = await getSafeSession();
 
   return (
     <header className="border-b border-slate-200 bg-white">

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getBuyerRfqs } from "@/lib/actions/rfq";
+import { getBuyerRfqs } from "@/lib/queries/rfq";
 import { getEffectiveRfqLabel } from "@/lib/rfq";
 import { formatDate } from "@/lib/utils";
 import { EmptyState } from "@/components/ui/EmptyState";

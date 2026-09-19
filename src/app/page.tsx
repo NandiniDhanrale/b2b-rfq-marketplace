@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { auth } from "@/lib/auth";
+import { getSafeSession } from "@/lib/auth-helpers";
 import { redirect } from "next/navigation";
 
 export default async function HomePage() {
-  const session = await auth();
+  const session = await getSafeSession();
 
   if (session?.user?.role === "BUYER") {
     redirect("/buyer/rfqs");

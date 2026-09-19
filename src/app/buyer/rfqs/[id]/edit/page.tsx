@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getBuyerRfqById } from "@/lib/actions/rfq";
+import { getBuyerRfqById } from "@/lib/queries/rfq";
 import { RfqForm } from "@/components/forms/RfqForm";
 import { AppError } from "@/lib/errors";
 
@@ -48,7 +48,7 @@ export default async function EditRfqPage({
               description: rfq.description,
               quantity: rfq.quantity,
               deliveryLocation: rfq.deliveryLocation,
-              deadline: rfq.deadline,
+              deadline: rfq.deadline.toISOString(),
             }}
           />
         </div>

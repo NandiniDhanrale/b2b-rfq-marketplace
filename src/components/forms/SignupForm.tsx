@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { useRouter } from "next/navigation";
 import { signupAction } from "@/lib/actions/auth";
 import { signIn } from "next-auth/react";
 import { Input } from "@/components/ui/Input";
@@ -11,7 +10,6 @@ import { Alert } from "@/components/ui/Alert";
 import { getErrorMessage } from "@/lib/errors";
 
 export function SignupForm() {
-  const router = useRouter();
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 

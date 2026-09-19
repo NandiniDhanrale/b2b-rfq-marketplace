@@ -96,12 +96,3 @@ export async function updateQuotationAction(quotationId: string, formData: FormD
   return { success: true };
 }
 
-export async function getSupplierQuotations() {
-  const supplier = await requireRole("SUPPLIER");
-
-  return prisma.quotation.findMany({
-    where: { supplierId: supplier.id },
-    include: { rfq: true },
-    orderBy: { createdAt: "desc" },
-  });
-}

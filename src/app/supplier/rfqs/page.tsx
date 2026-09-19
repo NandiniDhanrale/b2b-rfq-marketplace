@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Suspense } from "react";
-import { getSupplierRfqs } from "@/lib/actions/rfq";
+import { getSupplierRfqs } from "@/lib/queries/rfq";
 import { formatDate } from "@/lib/utils";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { SupplierSearchForm } from "@/components/forms/SupplierSearchForm";

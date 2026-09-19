@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getBuyerRfqById } from "@/lib/actions/rfq";
+import { getBuyerRfqById } from "@/lib/queries/rfq";
 import { getEffectiveRfqLabel } from "@/lib/rfq";
 import { formatCurrency, formatDate } from "@/lib/utils";
 import { StatusBadge } from "@/components/ui/StatusBadge";

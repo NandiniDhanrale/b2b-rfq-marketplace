@@ -2,6 +2,15 @@ import { auth } from "@/lib/auth";
 import { AppError } from "@/lib/errors";
 import type { Role } from "@prisma/client";
 
+export async function getSafeSession() {
+  try {
+    return await auth();
+  } catch (error) {
+    console.error("Failed to read session:", error);
+    return null;
+  }
+}
+
 export async function requireAuth() {
   const session = await auth();
   if (!session?.user?.id) {

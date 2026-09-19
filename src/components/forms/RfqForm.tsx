@@ -18,7 +18,7 @@ type RfqFormProps = {
     description: string;
     quantity: number;
     deliveryLocation: string;
-    deadline: Date;
+    deadline: string;
   };
 };
 
